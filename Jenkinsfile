@@ -19,8 +19,15 @@ pipeline{
             steps{
                 sh "npm test"
             }
-        }
+        }	
 
-        // Add the Release stage here
+	stage('Release') {
+ 		steps {
+			sh '''
+ 				oc project mtnxpo-greetings
+ 				oc start-build greeting-console --follow --wait
+ 			'''
+	 }	
+}
     }
 }
