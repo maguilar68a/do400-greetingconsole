@@ -21,13 +21,13 @@ pipeline{
             }
         }	
 
-	stage('Release') {
+	stage("Release") {
  		steps {
 			sh '''
  				oc project mtnxpo-greetings
  				oc start-build greeting-console --follow --wait
  			'''
 	 }	
-}
+	}
     }
 }
